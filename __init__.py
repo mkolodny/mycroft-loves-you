@@ -1,15 +1,25 @@
-from mycroft import MycroftSkill, intent_file_handler
+from mycroft import MycroftSkill, intent_handler
 
 
-class ILoveYou(MycroftSkill):
-    def __init__(self):
-        MycroftSkill.__init__(self)
+class ILoveYouSkill(MycroftSkill):
 
-    @intent_file_handler('you.love.i.intent')
-    def handle_you_love_i(self, message):
-        self.speak_dialog('you.love.i')
+    @intent_handler('i.love.you.intent')
+    def handle_i_love_you(self, message):
+        self.speak_dialog('i.love.you')
+
+    @intent_handler('do.you.love.me.intent')
+    def handle_do_you_love_me(self, message):
+        self.speak_dialog('do.you.love.me')
+
+    @intent_handler('how.much.do.you.love.me.intent')
+    def handle_how_much_do_you_love_me(self, message):
+        self.speak_dialog('how.much.do.you.love.me')
+
+    @intent_handler('i.love.you.so.much.intent')
+    def handle_i_love_you_so_much(self, message):
+        self.speak_dialog('i.love.you.so.much')
 
 
 def create_skill():
-    return ILoveYou()
+    return ILoveYouSkill()
 
